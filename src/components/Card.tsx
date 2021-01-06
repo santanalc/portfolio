@@ -4,7 +4,7 @@ import React from "react";
 interface Props {
   date: string;
   title: string;
-  text: string;
+  text: string[];
 }
 export function Card(props: Props) {
   const { date, title, text } = props;
@@ -18,6 +18,7 @@ export function Card(props: Props) {
       alignItems="flex-start"
       flexDirection="column"
       m="4"
+      width={800}
     >
       <Text fontSize={14} color="#8C8C8C">
         {date}
@@ -25,9 +26,17 @@ export function Card(props: Props) {
       <Text fontSize={14} color="#02A1E8">
         {title}
       </Text>
-      <Text fontSize={14} color="#4D4D4D">
-        {text}
-      </Text>
+      <ul>
+        {text.map((elem) => {
+          return (
+            <li>
+              <Text fontSize={14} color="#4D4D4D">
+                {elem}
+              </Text>
+            </li>
+          );
+        })}
+      </ul>
     </Box>
   );
 }
