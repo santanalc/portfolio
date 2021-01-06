@@ -5,6 +5,8 @@ import {
   Button,
   Center,
   ChakraProvider,
+  Flex,
+  Grid,
   Heading,
   HStack,
   Image,
@@ -85,6 +87,7 @@ function App() {
         >
           <Text
             cursor="pointer"
+            display={["none", "none", "inherit", "inherit"]}
             onClick={() => homeRef.current.scrollIntoView()}
             mr={4}
           >
@@ -92,6 +95,7 @@ function App() {
           </Text>
           <Text
             cursor="pointer"
+            display={["none", "none", "inherit", "inherit"]}
             onClick={() => aboutRef.current.scrollIntoView()}
             mr={4}
           >
@@ -99,6 +103,7 @@ function App() {
           </Text>
           <Text
             cursor="pointer"
+            display={["none", "none", "inherit", "inherit"]}
             onClick={() => resumeRef.current.scrollIntoView()}
             mr={4}
           >
@@ -106,6 +111,7 @@ function App() {
           </Text>
           <Text
             cursor="pointer"
+            display={["none", "none", "inherit", "inherit"]}
             onClick={() => projectsRef.current.scrollIntoView()}
             mr={4}
           >
@@ -113,6 +119,7 @@ function App() {
           </Text>
           <Text
             cursor="pointer"
+            display={["none", "none", "inherit", "inherit"]}
             onClick={() => contactRef.current.scrollIntoView()}
             mr={4}
           >
@@ -128,6 +135,7 @@ function App() {
         justifyContent="space-between"
         color="white"
         ref={homeRef}
+        flexDirection={["column", "column", "row", "row"]}
       >
         <Box>
           <Text fontSize={32}>HELLO</Text>
@@ -144,6 +152,7 @@ function App() {
         </Box>
 
         <Avatar
+          display={["none", "none", "inherit", "inherit"]}
           width="20rem"
           height="20rem"
           name="Segun Adebayo"
@@ -157,6 +166,7 @@ function App() {
         display="flex"
         alignItems="center"
         ref={aboutRef}
+        flexDirection={["column", "column", "row", "row"]}
       >
         <Image
           boxShadow="2xl"
@@ -165,6 +175,7 @@ function App() {
           src={avatarImageTwo}
           width={400}
           borderRadius={10}
+          mb={[10, 10, 0, 0]}
         />
 
         <Box ml={10} width="100%">
@@ -225,7 +236,16 @@ function App() {
         />
 
         <Heading ref={projectsRef}>PROJECTS</Heading>
-        <HStack mt={4}>
+        {/* <HStack mt={4}> */}
+        <Grid
+          templateColumns={[
+            "repeat(1, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(3, 1fr)",
+            "repeat(3, 1fr)",
+          ]}
+          gap={2}
+        >
           <MotionBox
             whileHover={{
               scale: 1.1,
@@ -295,8 +315,8 @@ function App() {
           >
             <Center h="250px">Like water</Center>
           </MotionBox>
-        </HStack>
-        <HStack mt={4}>
+          {/* </HStack> */}
+          {/* <HStack mt={4}> */}
           <MotionBox
             whileHover={{
               scale: 1.1,
@@ -366,7 +386,8 @@ function App() {
           >
             <Center h="250px">Varejon</Center>
           </MotionBox>
-        </HStack>
+          {/* </HStack> */}
+        </Grid>
         <ProjectModal
           title={modal.title}
           images={modal.images}
@@ -397,8 +418,10 @@ function App() {
           <Text mt={4} fontSize={24}>
             MY SOCIALS
           </Text>
-          <HStack mt={4}>
+          <Flex direction={["column", "column", "row", "row"]}>
             <Button
+              mt={[5, 5, 0, 0]}
+              mr={[0, 0, 5, 5]}
               colorScheme="facebook"
               leftIcon={<FaGithub />}
               onClick={() => openInNewTab("https://github.com/santanalc")}
@@ -406,6 +429,8 @@ function App() {
               Github
             </Button>
             <Button
+              mt={[5, 5, 0, 0]}
+              mr={[0, 0, 5, 5]}
               colorScheme="facebook"
               leftIcon={<FaLinkedinIn />}
               onClick={() =>
@@ -417,6 +442,8 @@ function App() {
               Linkedin
             </Button>
             <Button
+              mt={[5, 5, 0, 0]}
+              mr={[0, 0, 5, 5]}
               colorScheme="facebook"
               leftIcon={<FaInstagram />}
               onClick={() =>
@@ -425,7 +452,7 @@ function App() {
             >
               Instagram
             </Button>
-          </HStack>
+          </Flex>
         </Box>
       </Box>
     </ChakraProvider>

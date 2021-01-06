@@ -18,7 +18,7 @@ export function Card(props: Props) {
       alignItems="flex-start"
       flexDirection="column"
       m="4"
-      width={800}
+      width={"80%"}
     >
       <Text fontSize={14} color="#8C8C8C">
         {date}
