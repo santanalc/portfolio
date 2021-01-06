@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import {
-  Avatar,
   Box,
   Button,
   Center,
@@ -8,13 +7,12 @@ import {
   Flex,
   Grid,
   Heading,
-  HStack,
   Image,
   useDisclosure,
 } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
-import avatarImage from "./assets/avatar.jpg";
 import avatarImageTwo from "./assets/avatar2.jpg";
+import avatarCortado from "./assets/avatarcortado.png";
 import { Card } from "./components/Card";
 import { FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -41,6 +39,7 @@ import VarejonTwo from "./assets/Telas/varejon2.png";
 import VarejonThree from "./assets/Telas/varejon3.png";
 import VarejonFour from "./assets/Telas/varejon4.png";
 import pdf from "./resume.pdf";
+import triangle from "./assets/triangle.svg";
 
 const openInNewTab = (url: string | undefined) => {
   const newWindow = window.open(url, "_blank", "noopener,noreferrer");
@@ -66,7 +65,7 @@ function App() {
   return (
     <ChakraProvider>
       <Box
-        bg="#02A1E8"
+        bg="linear-gradient(87.48deg, #353661 4.21%, #C0BCAF 66.23%);"
         w="100%"
         p={4}
         pl={12}
@@ -128,7 +127,7 @@ function App() {
         </Box>
       </Box>
       <Box
-        bg="#0197E4"
+        bg="linear-gradient(87.48deg, #353661 4.21%, #C0BCAF 66.23%);"
         p={75}
         display="flex"
         alignItems="center"
@@ -136,6 +135,7 @@ function App() {
         color="white"
         ref={homeRef}
         flexDirection={["column", "column", "row", "row"]}
+        position="relative"
       >
         <Box>
           <Text fontSize={32}>HELLO</Text>
@@ -144,19 +144,19 @@ function App() {
             I'm full stack developer and computer engineering student located in
             Brazil
           </Text>
-          <Button mt={4} color="#02A1E8">
+          <Button mt={4} color="#353661">
             <a href={pdf} target="_blank" rel="noopener noreferrer" download>
               Donwload CV
             </a>
           </Button>
         </Box>
-
-        <Avatar
+        <Image
+          position="absolute"
           display={["none", "none", "inherit", "inherit"]}
-          width="20rem"
-          height="20rem"
-          name="Segun Adebayo"
-          src={avatarImage}
+          src={avatarCortado}
+          bottom={0}
+          right={0}
+          height={350}
         />
       </Box>
       <Box
@@ -176,6 +176,7 @@ function App() {
           width={400}
           borderRadius={10}
           mb={[10, 10, 0, 0]}
+          box
         />
 
         <Box ml={10} width="100%">
@@ -198,7 +199,15 @@ function App() {
         justifyContent="center"
         flexDirection="column"
         ref={resumeRef}
+        position="relative"
       >
+        <Image
+          position="absolute"
+          src={triangle}
+          top={0}
+          left={-400}
+          zIndex={-1}
+        />
         <Heading>RESUME</Heading>
         <Card
           date="01/2020 - 11/2020"
@@ -236,7 +245,7 @@ function App() {
         />
 
         <Heading ref={projectsRef}>PROJECTS</Heading>
-        {/* <HStack mt={4}> */}
+
         <Grid
           templateColumns={[
             "repeat(1, 1fr)",
@@ -253,7 +262,7 @@ function App() {
             }}
             boxShadow="2xl"
             rounded="md"
-            bg="#a6cff4"
+            bg="#C0BCAF"
             width={250}
             height={250}
             color={"white"}
@@ -276,7 +285,7 @@ function App() {
             }}
             boxShadow="2xl"
             rounded="md"
-            bg="#1984bd"
+            bg="#353661"
             width={250}
             height={250}
             color={"white"}
@@ -299,7 +308,7 @@ function App() {
             }}
             boxShadow="2xl"
             rounded="md"
-            bg="#1f4e6d"
+            bg="#C0BCAF"
             width={250}
             height={250}
             color={"white"}
@@ -315,8 +324,7 @@ function App() {
           >
             <Center h="250px">Like water</Center>
           </MotionBox>
-          {/* </HStack> */}
-          {/* <HStack mt={4}> */}
+
           <MotionBox
             whileHover={{
               scale: 1.1,
@@ -324,7 +332,7 @@ function App() {
             }}
             boxShadow="2xl"
             rounded="md"
-            bg="#1f4e6d"
+            bg="#353661"
             width={250}
             height={250}
             color={"white"}
@@ -347,7 +355,7 @@ function App() {
             }}
             boxShadow="2xl"
             rounded="md"
-            bg="#1984bd"
+            bg="#C0BCAF"
             width={250}
             height={250}
             color={"white"}
@@ -370,7 +378,7 @@ function App() {
             }}
             boxShadow="2xl"
             rounded="md"
-            bg="#a6cff4"
+            bg="#353661"
             width={250}
             height={250}
             color={"white"}
@@ -398,7 +406,7 @@ function App() {
         />
       </Box>
       <Box
-        bg="#0197E4"
+        bg="linear-gradient(87.48deg, #353661 4.21%, #C0BCAF 66.23%)"
         py={10}
         px={75}
         display="flex"

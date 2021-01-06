@@ -23,7 +23,7 @@ export function Card(props: Props) {
       <Text fontSize={14} color="#8C8C8C">
         {date}
       </Text>
-      <Text fontSize={14} color="#02A1E8">
+      <Text fontSize={14} color="#353661" fontWeight="600">
         {title}
       </Text>
       <ul>
